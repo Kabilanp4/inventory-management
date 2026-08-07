@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: 1,
+    name: "MacBook Pro M4",
+    brand: "Apple",
+    category: "Laptop",
+    price: 229999,
+    quantity: 12,
+  },
+  {
+    id: 2,
+    name: "Dell XPS 15",
+    brand: "Dell",
+    category: "Laptop",
+    price: 179999,
+    quantity: 8,
+  },
+  {
+    id: 3,
+    name: "Samsung Galaxy S25",
+    brand: "Samsung",
+    category: "Mobile",
+    price: 89999,
+    quantity: 25,
+  },
+  {
+    id: 4,
+    name: "iPhone 17 Pro",
+    brand: "Apple",
+    category: "Mobile",
+    price: 129999,
+    quantity: 18,
+  },
+  {
+    id: 5,
+    name: "Sony WH-1000XM6",
+    brand: "Sony",
+    category: "Headphones",
+    price: 32999,
+    quantity: 30,
+  },
+];

@@ -5,8 +5,12 @@ import { Outlet } from "react-router-dom";
 function DashboardLayout() {
   return (
     <>
-      <Navbar />
-      <Sidebar />
+      <header>
+        <Navbar />
+      </header>
+      <aside>
+        <Sidebar />
+      </aside>
       <main>
         <Outlet />
       </main>
