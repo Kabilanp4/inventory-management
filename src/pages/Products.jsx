@@ -7,13 +7,14 @@ function Products() {
   // Local states
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 500);
+
+  const [page, setPage] = useState(1);
+  const limit = 10;
   //Tanstack Query states
-  const {
-    data: products,
-    isLoading,
-    error,
-  } = useProducts({
+  const { data, isLoading, error } = useProducts({
     search: debouncedSearch,
+    page,
+    limit,
   });
 
   if (isLoading) return <p>Loading...</p>;
@@ -27,14 +28,31 @@ function Products() {
           type="text"
           value={search}
           onChange={(e) => {
-            console.log("e.target.value", e.target.value);
             setSearch(e.target.value);
+            setPage(1);
           }}
           placeholder="Search Product"
         />
       </div>
       <hr></hr>
-      <ProductTable products={products}></ProductTable>;
+      <ProductTable products={data}></ProductTable>;
+      <div>
+        <button
+          disabled={page === 1}
+          onClick={() => setPage((prev) => prev - 1)}
+        >
+          Prev
+        </button>
+        <span>
+          Page {page} of {data.totalPages || 1}{" "}
+        </span>
+        <button
+          disabled={page === data.totalPages}
+          onClick={() => setPage((prev) => prev + 1)}
+        >
+          Next
+        </button>
+      </div>
     </>
   );
 }
