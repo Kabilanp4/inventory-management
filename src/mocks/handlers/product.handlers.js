@@ -28,4 +28,18 @@ export const productHandlers = [
       totalPages: Math.ceil(total / limit),
     });
   }),
+  http.post("/products", async ({ request }) => {
+    const body = await request.json();
+
+    const newProduct = {
+      id: products.length + 1,
+      ...body,
+    };
+
+    products.push(newProduct);
+
+    return HttpResponse.json(newProduct, {
+      status: 201,
+    });
+  }),
 ];

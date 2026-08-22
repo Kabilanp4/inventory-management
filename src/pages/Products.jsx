@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ProductForm from "../features/products/components/ProductForm";
 import ProductTable from "../features/products/components/ProductTable";
 import { useProducts } from "../features/products/hooks/useProducts";
 import { useDebounce } from "../hooks/useDebounce";
@@ -22,6 +23,7 @@ function Products() {
   if (error) return <p>Error...</p>;
   return (
     <>
+      <ProductForm />
       <div>
         <label>Search Product : </label>
         <input
